@@ -1,0 +1,45 @@
+# Exploring Spring Boot Started Projects
+
+spring boot started projects are convient dependency descriptor
+in any application we need certain kinds for dependendies -> all of these are defined in starter projects
+
+spring boot provide a variety of starter projects -> depending on our use case
+
+
+!! it is not sufficeint to have just the right dependies we need to have configuration for them also
+
+
+we need to configure all of the framework that we brought at our class path. With starter project diff framework are brought at the classpath.
+
+all the configuration related info is stored in "spring-boot-autoconfigure" jar file
+
+eg. we can change the logging level(which is default is "info") to debug by writing in application.properties file
+-> logging.level.org.springframework=debug => we set logging level to debug for org.springframework package
+
+----------------------------------------------------------------------------------------------------------------
+
+# Setting different profile
+
+we can have diff profiles like dev, prod etc
+for setting configuration for diff profiles, we need to make diff properties file
+application-dev.properties = dev profile
+application-prod.properties = production profile
+along with this we have our default application.properties file, here we set the active profile as
+"spring.profiles.active=dev/prod"
+so it will mix together the configuration from default file and settet profile file, but the set profile will have more priotity
+
+
+logging lever goes like
+trace-> debug -> info -> warning -> error and off
+
+----------------------
+External properties can be defined in various sources such as application.properties or application.yml files, command line arguments, or environment variables. 
+By using @ConfigurationProperties, you can easily map these external properties to a Java class and use them in your application.
+
+Type safety: @ConfigurationProperties provides type-safe configuration for your application. You can define properties in your Java class with the correct data type, and the Spring Boot will ensure that the property values are converted to the correct type.
+
+Easy Configuration: @ConfigurationProperties makes it easy to configure your application. You can define multiple properties in a single Java class and group related properties together.
+
+Automatic Validation: @ConfigurationProperties supports validation of property values using JSR-303 validation annotations. This makes it easy to ensure that the properties are valid and meet the required constraints.
+
+Easy to Test: By using @ConfigurationProperties, you can inject the configured Java class into your tests and easily test your application with different configurations.
