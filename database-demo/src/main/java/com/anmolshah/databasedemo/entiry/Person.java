@@ -2,10 +2,20 @@ package com.anmolshah.databasedemo.entiry;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+@Entity
+@NamedQuery(name = "find_all_query",query = "select p from Person p")
 public class Person {
+	@Id
 	private int id;
 	private String name;
 	private String location;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date birthDate;
 	
 	
@@ -18,6 +28,13 @@ public class Person {
 	public Person(int id, String name, String location, Date birthDate) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.birthDate = birthDate;
+	}
+	
+	public Person( String name, String location, Date birthDate) {
+		super();
 		this.name = name;
 		this.location = location;
 		this.birthDate = birthDate;

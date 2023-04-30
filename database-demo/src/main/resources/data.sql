@@ -1,3 +1,4 @@
+/*
 create table Person(
 	id integer not  null,
 	name varchar(255) not null,
@@ -5,8 +6,9 @@ create table Person(
 	birthDate timestamp,
 	primary key(id)
 );
+*/
 
-insert into person
+insert into person(id,name,location,birth_date)
 values
 (10001,'Ranga','Hyderabad',current_timestamp()),
 (10002,'Anmol','Nagpur',current_timestamp()),
